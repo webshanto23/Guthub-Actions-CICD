@@ -1,0 +1,27 @@
+name: Test Using Mocha and Chai
+
+on: 
+  push: 
+    branches: [ main ]  
+
+jobs: 
+  test:
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Checkout Code
+        uses: actions/checkout@v2
+      - name: Use Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '18'
+      - name: Install Dependencies
+        run: npm install
+      - name: Run Tests
+        run: npm test
+      - name: Upload Test Results
+        uses: actions/upload-artifact@v2
+        with:
+          name: test-results
+          path: test-results.json
+      - name: Actions completed
+        run: echo "Test workflow completed"

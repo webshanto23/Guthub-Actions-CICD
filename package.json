@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "dev": "nodemon index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js",
+    "test": "mocha tests/*.js"
   },
   "repository": {
     "type": "git",
@@ -20,6 +21,9 @@
   },
   "homepage": "https://github.com/webshanto23/Guthub-Actions-CICD#readme",
   "dependencies": {
-    "express": "^5.2.1"
+    "chai": "^6.2.2",
+    "express": "^5.2.1",
+    "mocha": "^11.7.5",
+    "supertest": "^7.2.2"
   }
 }
