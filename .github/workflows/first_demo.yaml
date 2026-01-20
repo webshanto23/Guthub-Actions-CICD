@@ -1,0 +1,32 @@
+name: First Github Actions Workflow Demo
+run-name: Demo CI/CD Pipeline
+
+
+on: 
+  push:
+    branches: [ main ]
+ 
+
+ jobs: 
+    demo-job:
+      runs-on: ubuntu-latest
+      steps: 
+        -run: echo "Actions started"
+        -name: Checkout
+         uses: actions/checkout@v4
+        -name: Run a one-line script
+          run: echo Hello, world!
+        -name: Run a multiline script
+          run: |
+           echo Add other actions to build, test, and deploy your project.
+           echo "Node version"
+           echo Add other actions to build, test, and deploy your project.
+        -name: List files in the repository
+         run: ls ${{github.workspace}}
+        -name: Print github context 
+          env: 
+            GITHUB_CONTEXT: ${{ toJson(github) }}
+          run: echo "$GITHUB_CONTEXT"
+
+        -name: Actions completed
+           run: echo "Actions completed"
